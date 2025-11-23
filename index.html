@@ -2,285 +2,60 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Redwood Works — Bay Area Product Studio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&family=Unbounded:wght@500&display=swap"
-        rel="stylesheet" />
-    <link rel="icon" href="favicon.ico" sizes="any" />
-    <style>
-        :root {
-            --sunset: #ff7a3c;
-            --ember: #c0392b;
-            --charcoal: #070609;
-            --mist: rgba(255, 255, 255, 0.85);
-            --text-body: #efe4de;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redwood Works | Software for the Real Economy</title>
+    <meta name="description"
+        content="Redwood Works is a Bay Area-based software holding company building robust solutions for foundational industries.">
 
-        * {
-            box-sizing: border-box;
-        }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
 
-        body {
-            margin: 0;
-            font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont,
-                'Segoe UI', sans-serif;
-            color: var(--text-body);
-            background: radial-gradient(circle at 20% 20%, #120a12, var(--charcoal));
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
 
-        .ambient {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .ambient span {
-            position: absolute;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.35;
-            background: linear-gradient(135deg, var(--sunset), var(--ember));
-            animation: floaty 16s ease-in-out infinite;
-        }
-
-        .ambient span:nth-child(2) {
-            width: 360px;
-            height: 360px;
-            top: 10%;
-            right: 15%;
-            animation-duration: 20s;
-        }
-
-        .ambient span:nth-child(3) {
-            width: 220px;
-            height: 220px;
-            bottom: 12%;
-            left: 25%;
-            animation-duration: 18s;
-        }
-
-        @keyframes floaty {
-            0% {
-                transform: translate3d(0, 0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate3d(40px, -20px, 0) scale(1.08);
-            }
-
-            100% {
-                transform: translate3d(-10px, 30px, 0) scale(1);
-            }
-        }
-
-        main {
-            position: relative;
-            width: min(960px, 100%);
-            border-radius: 32px;
-            padding: 2.5rem 3rem;
-            background: rgba(6, 5, 9, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(24px);
-            box-shadow: 0 30px 80px rgba(5, 3, 7, 0.7);
-        }
-
-        header {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 1.75rem;
-        }
-
-        header img {
-            width: 84px;
-            height: auto;
-        }
-
-        .brand {
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-        }
-
-        .brand h1 {
-            font-family: 'Unbounded', 'Space Grotesk', sans-serif;
-            font-size: clamp(2.25rem, 4vw, 3.25rem);
-            letter-spacing: -0.02em;
-            margin: 0;
-            color: #ffdbc9;
-            text-shadow: 0 5px 25px rgba(0, 0, 0, 0.45);
-        }
-
-        .location-chip {
-            align-self: flex-start;
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.35rem 0.75rem;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .hero-copy {
-            max-width: 640px;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .hero-copy strong {
-            color: var(--sunset);
-            font-weight: 500;
-        }
-
-        .cta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .cta a {
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 999px;
-            padding: 0.95rem 1.75rem;
-            transition: transform 200ms ease, box-shadow 200ms ease;
-        }
-
-        .cta-primary {
-            background-image: linear-gradient(120deg, var(--sunset), var(--ember));
-            color: #1d0702;
-            box-shadow: 0 18px 35px rgba(192, 57, 43, 0.35);
-        }
-
-        .cta-secondary {
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: var(--text-body);
-        }
-
-        .cta-secondary.is-hidden {
-            display: none;
-        }
-
-        .cta a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.35);
-        }
-
-        .highlights {
-            margin-top: 2.5rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-        }
-
-        .highlight-card {
-            padding: 1.25rem 1.4rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(6px);
-        }
-
-        .highlight-card h3 {
-            margin: 0 0 0.35rem;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .highlight-card p {
-            margin: 0;
-            color: rgba(255, 255, 255, 0.75);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 640px) {
-            main {
-                padding: 2rem 1.5rem;
-            }
-
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .brand {
-                align-items: center;
-            }
-
-            .location-chip {
-                align-self: center;
-            }
-
-            .cta {
-                flex-direction: column;
-            }
-
-            .cta a {
-                text-align: center;
-                width: 100%;
-            }
-        }
-    </style>
+    <!-- Favicon -->
+    <link rel="icon" href="logo-icon.svg" type="image/svg+xml">
 </head>
 
 <body>
-    <div class="ambient">
-        <span style="top: -80px; left: -60px"></span>
-        <span></span>
-        <span></span>
-    </div>
-    <main>
-        <header>
-            <img src="logo.svg" alt="Redwood Works mark" />
-            <div class="brand">
-                <div class="location-chip">Bay Area • California</div>
-                <h1>Redwood Works</h1>
+    <!-- Ambient Background Glow -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <main class="glass-card">
+        <nav class="navbar">
+            <a href="/" aria-label="Redwood Works Home">
+                <img src="logo.svg" alt="Redwood Works Logo" class="logo">
+            </a>
+            <a href="mailto:hello@heyredwood.com" class="nav-link">Get in Touch</a>
+        </nav>
+
+        <section class="hero">
+            <span class="pill-tag">Est. 2022 • Bay Area</span>
+            <h1 class="hero-title">Software for the Real Economy</h1>
+            <p class="hero-subtitle">We build and buy software for essential industries. We focus on what matters: tools
+                that work and businesses that last.</p>
+            <a href="mailto:hello@heyredwood.com" class="btn-primary">Contact Us</a>
+        </section>
+
+        <section class="feature-grid">
+            <div class="feature-item">
+                <h3>Built to Last</h3>
+                <p>We don't look for quick exits. We build and hold our companies forever.</p>
             </div>
-        </header>
-        <p class="hero-copy">
-            Redwood Works is a Bay Area studio crafting purposeful apps and software
-            systems that make everyday life easier. We incubate and launch products
-            under one umbrella brand, partnering with founders who share our love
-            for <strong>beautifully engineered experiences</strong>.
-        </p>
-        <div class="cta">
-            <a class="cta-primary" href="mailto:hello@heyredwood.com">Contact us</a>
-            <a class="cta-secondary is-hidden" href="#folio">See what we're shipping</a>
-        </div>
-        <section class="highlights" id="folio">
-            <article class="highlight-card">
-                <h3>Applied R&D</h3>
-                <p>Rapid prototyping across AI, fintech, and tools for the modern workforce.</p>
-            </article>
-            <article class="highlight-card">
-                <h3>Product Stewardship</h3>
-                <p>From idea to launch: design systems, infrastructure, and go-to-market fits.</p>
-            </article>
-            <article class="highlight-card">
-                <h3>People First</h3>
-                <p>We build software to remove friction so teams can focus on meaningful work.</p>
-            </article>
+            <div class="feature-item">
+                <h3>Essential Industries</h3>
+                <p>We work with the businesses that run the world. Construction, supply chain, infrastructure and more.
+                </p>
+            </div>
+            <div class="feature-item">
+                <h3>Quality First</h3>
+                <p>We care about how it works. Fast, reliable software without the bloat.</p>
+            </div>
         </section>
     </main>
 </body>
